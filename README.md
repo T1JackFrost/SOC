@@ -1,16 +1,18 @@
 # ELK ?
 
-1. ELK là một công cụ quản lý logs tập trung. ELK viết tắt của 3 dự án mã
-   nguồn mở:
+## 1. Khái niệm:
 
-- E - Elasticsearch: là công cụ phân tích & tìm kiếm, đóng vai trò như 1
+ELK là một công cụ quản lý logs tập trung. ELK viết tắt của 3 dự án mã
+nguồn mở:
+
+- E - _Elasticsearch_: là công cụ phân tích & tìm kiếm, đóng vai trò như 1
   storage để lưu trữ logs
-- L - Logstash: công cụ thu thập, xử lý log từ nhiều nguồn đồng thời. Nhiệm
-  vụ chính là thu thập log, biến đổi nó và gửi đến Elasticsearch
-- K - Kibana: Giao diện quản lý, thống kê log bằng đồ thị, biểu đồ. Đọc
+- L - _Logstash_: công cụ thu thập, xử lý log từ nhiều nguồn đồng thời.
+  Nhiệm vụ chính là thu thập log, biến đổi nó và gửi đến Elasticsearch
+- K - _Kibana_: Giao diện quản lý, thống kê log bằng đồ thị, biểu đồ. Đọc
   thông tin từ Elasticsearch
 
-2. Luồng hoạt động
+## 2. Luồng hoạt động
 
 - Đầu tiên log được đưa đến Logstash (thông qua nhiều con đường như server
   gửi UDP request chứa log tới URL của Logstash, hoặc Beat đọc file log rồi
@@ -22,7 +24,7 @@
 
 # Build ELK-Stack
 
-1. Cài đặt ELK trên server (hệ điều hành CentOS 7)
+## 1. Cài đặt ELK trên server (hệ điều hành CentOS 7)
 
 - Kiểm tra đảm bảo đã cài đặt java (openjdk)
 - Bước 1: Cài đặt Elasticsearch:
@@ -58,7 +60,7 @@
   - Kích hoạt module
   - Kích hoạt dịch vụ Filebeat
 
-2. Cài đặt Filebeat trên máy gửi log đến server (Hệ điều hành Ubuntu)
+## 2. Cài đặt Filebeat trên máy gửi log đến server (Hệ điều hành Ubuntu)
 
 - Cài đặt apt-transport-https
 - Cài đặt Filebeat
