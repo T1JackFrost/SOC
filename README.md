@@ -1,6 +1,6 @@
 # ELK ?
 
-## 1. Khái niệm:
+## 1. Khái niệm
 
 ELK là một công cụ quản lý logs tập trung. ELK viết tắt của 3 dự án mã
 nguồn mở:
