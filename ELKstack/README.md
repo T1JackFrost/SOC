@@ -1,4 +1,4 @@
-tt# ELK ?
+# ELK ?
 
 ## 1. Khái niệm
 
