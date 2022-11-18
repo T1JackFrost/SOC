@@ -18,7 +18,7 @@ nguồn mở:
   gửi UDP request chứa log tới URL của Logstash, hoặc Beat đọc file log rồi
   gửi lên Logstash)
 - Logstash đọc những log này, thêm thông tin như thời gian, IP, parse dữ
-  liệu từ log, sau đó ghi xuống database là Elasticsearch
+  liệu từ log, sau đó ghi xuống Elasticsearch
 - Khi cần xem log, người dùng vào URL của Kibana. Kibana đọc thông tin log
   trong Elasticsearch, hiển thị lên giao diện người dùng
 
@@ -31,9 +31,9 @@ nguồn mở:
   - Thêm repository:
     > echo '[elasticsearch-7.x] <br>name=Elasticsearch repository for
     > 7.xpackages
-    > <br>baseurl=https://artifacts.elastic.co/packages/7.x/yum >
+    > <br>baseurl=https://artifacts.elastic.co/packages/7.x/yum 
     > <br>gpgcheck=1
-    > <br>gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch >
+    > <br>gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch 
     > <br>enabled=1 <br>autorefresh=1 <br>type=rpm-md <br> ' >
     > /etc/yum.repos.d/elasticsearch.repo
   - Cài đặt Elasticsearch:
@@ -60,7 +60,7 @@ nguồn mở:
   - Cấu hình file output để sau khi Logstash nhận dữ liệu đầu vào từ Beats
     Logstash sẽ xử lý rồi gửi đến Elasticsearch (localhost:9200):
     > echo 'output { <br> elasticsearch { <br> hosts =>
-    > ["localhost:9200"] > <br> manage_template => false <br> index =>
+    > ["localhost:9200"] <br> manage_template => false <br> index =>
     > "%{[@metadata][beat]}-%{[@metadata][version]}<br> {+YYYY.MM.dd}" <br>
     > } <br>}' > /etc/logstash/conf.d/30-elasticsearch-output.conf
   - Kiểm tra lại cấu hình:
@@ -86,7 +86,9 @@ nguồn mở:
   - Thực hiện chỉnh sửa 1 số nội dung trong file cấu hình filebeat.yml:
     - Thêm một số đường dẫn để nhận log từ đường dẫn cung cấp log:
       > filebeat.inputs:  
-      > path: - /đường-dẫn-để-lấy-file-ghi-log
+      > path: - /đường-dẫn-để-lấy-file-ghi-log <br>
+      _Hint:_ <br>Debian-based system (Ubuntu, for example): **/var/log/syslog** <br>
+      Red Hat-based systems (CentOS,...): **/var/log/messages**
     - Yêu cầu Filebeat gửi đến Logstash server qua port 5044:
       > output.logstash:  
       > host: ["x.x.x.x:5044"] với x.x.x.x là địa chỉ IP server nhận log
@@ -102,3 +104,8 @@ nguồn mở:
 - Các index có tiền tố là filebeat-\*, chính là các index lưu dữ liệu log
   do Filebeat gửi đến Logstash và Logstash để chuyển lưu tại Elasticsearch.
   (Nếu có nhiều server gửi đến thì có nhiều index dạng này)
+- Các bước truy vấn:
+  - Để truy vấn bằng Kibana đầu tiên tạo các index patterns, truy vấn thông tin có các tiền tố filebeat-, chọn index pattern, chọn create index pattern
+  - Điền filebeat-* vào index pattern, chọn Next step
+  - Chọn @timestamp ở mục Time Filter field name, sau đó chọn Create Index Pattern
+  - Cuối cùng chọn Discover để xem thông tin về các log
