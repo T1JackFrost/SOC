@@ -1,3 +1,1 @@
-# _New opportunity_
-
-# New challenges
+# _A new dawn_

@@ -87,7 +87,7 @@ nguồn mở:
     - Thêm một số đường dẫn để nhận log từ đường dẫn cung cấp log:
       > filebeat.inputs:  
       > path: - /đường-dẫn-để-lấy-file-ghi-log <br>
-      _Hint:_ <br>Debian-based system (Ubuntu, for example): **/var/log/syslog** <br>
+      - _Note:_ Debian-based system (Ubuntu, for example): **/var/log/syslog** <br>
       Red Hat-based systems (CentOS,...): **/var/log/messages**
     - Yêu cầu Filebeat gửi đến Logstash server qua port 5044:
       > output.logstash:  
