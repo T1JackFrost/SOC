@@ -1,5 +1,23 @@
 # Configure SSL/TLS and HTTPS to secure Elasticsearch, Kibana, Logstash (ELK)
 
+# Table of Contents
+1. [SSL/TLS, HTTPS](#1-ssltls-https) <br>
+1.1 [Khái niệm](#11-khái-niệm) <br>
+1.2 [Mục đích](#12-mục-đích)
+2. [Thiết lập cấu hình SSL/TLS cho mô hình ELK](#2-thiết-lập-cấu-hình-ssltls-cho-mô-hình-elk) <br>
+2.1 [Sơ đồ triển khai](#21-sơ-đồ-triển-khai) <br>
+2.2 [Các bước thực hiện](#22-các-bước-thực-hiện) <br>
+2.2.1 [Chuẩn bị](#221-chuẩn-bị) <br>
+2.2.2 [Cấu hình file /etc/host](#222-cấu-hình-file-etchost) <br>
+2.2.3 [Tạo chứng chỉ SSL và kích hoạt TLS cho Elasticsearch trên node 1](#223-tạo-chứng-chỉ-ssl-và-kích-hoạt-tls-cho-elasticsearch-trên-node-1) <br>
+2.2.4 [Kích hoạt TLS cho Kibana trên node 1](#224-kích-hoạt-tls-cho-kibana-trên-node-1) <br>
+2.2.5 [Chuẩn bị Logstash users](#225-chuẩn-bị-logstash-users) <br>
+2.2.6 [Thiết lập TLS cho Logstash trên node 2 (Sau khi cài đặt xong Logstash)](#226-thiết-lập-tls-cho-logstash-trên-node-2-sau-khi-cài-đặt-xong-logstash) <br>
+2.2.7 [Khởi chạy Filebeat trên node 3 (sau khi cài đặt xong Filebeat)](#227-khởi-chạy-filebeat-trên-node-3-sau-khi-cài-đặt-xong-filebeat) <br>
+2.3 [Xem log trong Kibana UI](#23-xem-log-trong-kibana-ui)
+
+
+
 ## 1. SSL/TLS, HTTPS
 
 ### 1.1 Khái niệm
@@ -9,7 +27,7 @@
 - HTTPS (_Hypertext Transfer Protocol Secure_) là phần mở rộng bảo mật của HTTP. Website được cài đặt chứng chỉ SSL/TLS có thể dùng giao thức HTTPS để thiết lập kết nối an toàn đến server.
 
 ### 1.2 Mục đích
-- Mục tiêu của SSL/TLS là bảo mật các thông tin nhạy cảm trong quá trình truyền trên internt: thông tin cá nhân, thông tin thanh toán, thông tin đăng nhập.
+- Mục tiêu của SSL/TLS là bảo mật các thông tin nhạy cảm trong quá trình truyền trên internet: thông tin cá nhân, thông tin thanh toán, thông tin đăng nhập.
 - Là giải pháp thay thế cho phương pháp truyền thông tin dạng plain text, loại này khi truyền trên internet sẽ không được mã hóa, nên việc áp dụng mã hóa SSL/TLS khiến cho các bên thứ 3 không xâm nhập, không đánh cắp hoặc chỉnh sửa được các thông tin này.
 
 ## 2. Thiết lập cấu hình SSL/TLS cho mô hình ELK
@@ -195,7 +213,7 @@ Download và cài đặt các thành phần sau:
     > [root@node2 ~]# cat /var/log/logstash/logstash-plain.log <br>
       ![okeokeoke](./img/logstash-validation-ok.PNG)
 
-#### 2.2.6 Khởi chạy Filebeat trên node 3 (sau khi cài đặt xong Filebeat)
+#### 2.2.7 Khởi chạy Filebeat trên node 3 (sau khi cài đặt xong Filebeat)
 - Cấu hình file filebeat.yml
   > [root@node3 ~]# vi /etc/filebeat/filebeat.yml <br>
   - Phần filebeat.input
