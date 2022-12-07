@@ -277,6 +277,16 @@ Dựa vào chức năng IPS được phân thành các loại sau:
     ![part2](./img/Zeek-path-log-2.png)
   - Restart dịch vụ Filebeat:
       > [root@Generator ~]# systemctl restart filebeat<br>
+  - Cấu hình Zeek đẩy ra log dưới dạng JSON:
+    - Ở trạng thái mặc định, Zeek không đẩy ra log dưới dạng JSON. Đây là lý do khiến data của Zeek bị thiếu trong các index của Filebeat. Module Zeek của Filebeat luôn cho rằng Zeek log ở dạng JSON. Nếu cố tình parse log mặc định của Zeek sẽ gặp lỗi log parsing error.
+    - Edit lại file cấu hình local.zeek 
+      > [root@Generator ~]# vi /opt/zeek/share/zeek/site/local.zeek
+    - Thêm dòng này vào cuối file cấu hình:
+      > @load policy/tuning/json-logs.zeek
+    - Lưu file và restart lại Zeek:
+      > [root@Generator ~]# zeekctl deploy
+    - Restart Filebeat:
+      > [root@Generator ~]# systemctl restart filebeat
 - Xem log trong Kibana: Đăng nhập theo hướng dẫn cấu hình ELK Filebeat đã để link [ở phần 2.2.3](#223-sơ-đồ-triển-khai), chọn Home -> Discover: <br>
 ![final](./img/zeek-final.png)
 
