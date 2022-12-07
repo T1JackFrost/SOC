@@ -1,6 +1,17 @@
-# ELK ?
+# ELK 
 
-## 1. Khái niệm
+# Table of Contents
+1. [ELK?](#1-elk) <br>
+1.1 [Khái niệm](#11-khái-niệm) <br>
+1.2 [Luồng hoạt động](#12-luồng-hoạt-động) <br>
+2. [Build ELK-Stack](#2-build-elk-stack) <br>
+2.1 [Cài đặt ELK trên server (Hệ điều hành CentOS 7)](#21-cài-đặt-elk-trên-server-hệ-điều-hành-centos-7) <br>
+2.2 [Cài đặt filebeat trên máy gửi log đến server (Hệ điều hành Ubuntu)](#22-cài-đặt-filebeat-trên-máy-gửi-log-đến-server-hệ-điều-hành-ubuntu) <br>
+2.3 [Xem log trong giao diện Kibana](#23-xem-log-trong-giao-diện-kibana)
+
+## 1. ELK ?
+
+### 1.1 Khái niệm
 
 ELK là một công cụ quản lý logs tập trung. ELK viết tắt của 3 dự án mã
 nguồn mở:
@@ -12,7 +23,7 @@ nguồn mở:
 - K - _Kibana_: Giao diện quản lý, thống kê log bằng đồ thị, biểu đồ. Đọc
   thông tin từ Elasticsearch
 
-## 2. Luồng hoạt động
+### 1.2 Luồng hoạt động
 
 - Đầu tiên log được đưa đến Logstash (thông qua nhiều con đường như server
   gửi UDP request chứa log tới URL của Logstash, hoặc Beat đọc file log rồi
@@ -22,9 +33,9 @@ nguồn mở:
 - Khi cần xem log, người dùng vào URL của Kibana. Kibana đọc thông tin log
   trong Elasticsearch, hiển thị lên giao diện người dùng
 
-# Build ELK-Stack
+## 2. Build ELK-Stack
 
-## 1. Cài đặt ELK trên server (Hệ điều hành CentOS 7)
+### 2.1 Cài đặt ELK trên server (Hệ điều hành CentOS 7)
 
 - Kiểm tra đảm bảo đã cài đặt java (openjdk)
 - Bước 1: Cài đặt Elasticsearch:
@@ -69,7 +80,7 @@ nguồn mở:
   - Mở firewall port 5044 để nhận dữ liệu từ server khác (optional)
   - Kích hoạt dịch vụ Logstash
 
-## 2. Cài đặt Filebeat trên máy gửi log đến server (Hệ điều hành Ubuntu)
+### 2.2 Cài đặt Filebeat trên máy gửi log đến server (Hệ điều hành Ubuntu)
 
 - Beats/Filebeat  
   Beats là nền tảng để gửi dữ liệu vào Logstash. Ở đây sử dụng _Filebeat_,
@@ -97,7 +108,7 @@ nguồn mở:
     > filebeat modules enable system
   - Kích hoạt dịch vụ Filebeat
 
-## 3. Xem log trong giao diện Kibana
+### 2.3 Xem log trong giao diện Kibana
 
 - Truy cập vào Kibana theo địa chỉ IP của ELK, http://x.x.x.x:5601, nhấn
   vào Discover, chọn mục Index Management của Elasticsearch
