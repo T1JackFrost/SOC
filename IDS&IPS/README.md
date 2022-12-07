@@ -111,7 +111,7 @@ Dựa vào chức năng IPS được phân thành các loại sau:
 
 #### 2.1.3 Sơ đồ triển khai
 ![suricata-deploy](./img/suricata-deploy-diagram.png) <br>
-- <span style="background-color: #eff1f3">_Xem cấu hình ELK (Elasticsearch, Kibana, Logstash) và Filebeat [tại đây!](https://github.com/T1JackFrost/ELK/tree/main/ConfigureSSLForELK)_</span>
+- _Xem cấu hình ELK (Elasticsearch, Kibana, Logstash) và Filebeat [tại đây!](https://github.com/T1JackFrost/ELK/tree/main/ConfigureSSLForELK)_
 - **Sau khi hoàn thành thiết lập ELK và Filebeat**, thực hiện cài đặt Suricata trên node 3. Thiết lập thành công thì lấy được log của Suricata gửi đến Filebeat sau đó đẩy về ELK.
 
 #### 2.1.4 Các bước thực hiện
@@ -220,7 +220,7 @@ Dựa vào chức năng IPS được phân thành các loại sau:
 
 #### 2.2.3 Sơ đồ triển khai
 ![zeek-deploy](./img/zeek-deploy-diagram.png)
-- <span style="background-color: #eff1f3">_Xem cấu hình ELK (Elasticsearch, Kibana, Logstash) và Filebeat [tại đây!](https://github.com/T1JackFrost/ELK/tree/main/ConfigureSSLForELK)_</span>
+- _Xem cấu hình ELK (Elasticsearch, Kibana, Logstash) và Filebeat [tại đây!](https://github.com/T1JackFrost/ELK/tree/main/ConfigureSSLForELK)_
 - **Sau khi hoàn thành thiết lập ELK và Filebeat**, thực hiện cài đặt Zeek trên node 3. Thiết lập thành công thì lấy được log của Zeek gửi đến Filebeat sau đó đẩy về ELK.
 
 #### 2.2.4 Các bước thực hiện

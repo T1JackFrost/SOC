@@ -63,8 +63,8 @@ Download và cài đặt các thành phần sau:
     logstash.local) <br>
     > x.x.x.x node1.elastic.test.com node1 <br> 
       y.y.y.y node2.elastic.test.com node2 <br>
-- <span style="background-color: #eff1f3">Giả sử trong trường hợp này tên node 1 là **elastic**, node 2 là
-  **collector-01** và _không đặt tên miền_</span> <br>
+- Giả sử trong trường hợp này tên node 1 là **elastic**, node 2 là
+  **collector-01** và _không đặt tên miền_ <br>
   - Cấu hình file /etc/hosts ở node 1 sẽ là : <br>
     > 127.0.0.1 kibana.local logstash.local <br> 
       x.x.x.x elastic <br>
