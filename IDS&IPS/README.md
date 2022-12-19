@@ -219,7 +219,7 @@ Dựa vào chức năng IPS được phân thành các loại sau:
 - Zeek diễn giải những gì nó nhìn thấy và tạo nhật ký ghi lại các log giao dịch (transaction logs), nội dung tệp và đầu ra được tùy chỉnh hoàn toàn, nhỏ gọn, có độ trung thực cao, phù hợp để xem xét thủ công (manual review) trên ổ đĩa (disk) hoặc trong một công cụ thân thiện với nhà phân tích hơn như hệ thống quản lý sự kiện thông tin và bảo mật (SIEM).
 
 #### 2.2.3 Sơ đồ triển khai
-![zeek-deploy](./img/zeek-deploy-diagram.png)
+![zeek-deploy](./img/zeek-deploy-diagram.png) 
 - _Xem cấu hình ELK (Elasticsearch, Kibana, Logstash) và Filebeat [tại đây!](https://github.com/T1JackFrost/ELK/tree/main/ConfigureSSLForELK)_
 - **Sau khi hoàn thành thiết lập ELK và Filebeat**, thực hiện cài đặt Zeek trên node 3. Thiết lập thành công thì lấy được log của Zeek gửi đến Filebeat sau đó đẩy về ELK.
 
