@@ -147,7 +147,7 @@ Dựa vào chức năng IPS được phân thành các loại sau:
       tpacket-v3: yes <br>
     - _Hint_: file này **rất dài**, dùng /<tên dòng cần tìm> để tìm nhanh hơn. Ví dụ: /af-packet
   - Kích hoạt Community ID: Suricata có thể bao gồm Community ID trong đầu ra JSON để giúp dễ dàng khớp các bản ghi sự kiện riêng lẻ với các bản ghi trong tập dữ liệu được tạo bởi các công cụ khác. Nếu có ý định sử dụng Suricata với các công cụ khác như Zeek/Bro hoặc **Elasticsearch**, thêm Community ID ngay bây giờ là một ý hay. Tìm đến dòng # Community Flow ID sửa giá trị community-id: false thành true.
-  - Cấu hình Live Rule Reloading: Suricata hỗ trợ Live Rule Reloading, nghĩa làcó thể thêm, xóa và chỉnh sửa quy tắc mà không cần khởi động lại tiến trình Suricata đang chạy. Di chuyển xuống cuối file cấu hình và thêm các dòng sau :
+  - Cấu hình Live Rule Reloading: Suricata hỗ trợ Live Rule Reloading, nghĩa là có thể thêm, xóa và chỉnh sửa quy tắc mà không cần khởi động lại tiến trình Suricata đang chạy. Di chuyển xuống cuối file cấu hình và thêm các dòng sau :
     > detect-engine: <br>
     <span>-</span> rule-reload: true
 - Cập nhật Suricata Rulesets:
