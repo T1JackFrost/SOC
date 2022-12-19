@@ -33,7 +33,7 @@
 ## 2. Thiết lập cấu hình SSL/TLS cho mô hình ELK
 
 ### 2.1 Sơ đồ triển khai
-![Sơ đồ triển khai](../ConfigureSSLForELK/img/deploy-diagram.png)
+![Sơ đồ triển khai](../ConfigureSSLForELK/img/ELKDefaultDiagram.png)
 - Node 1 sẽ thực hiện cài đặt Elastichsearch và Kibana, sau đó thiết lập SSL/TLS để thông tin trao đổi giữa Elasticsearch và Kibana được mã hóa.
 - Node 2 thực hiện cài đặt Logstash. Giữa node 2 và node 1 sẽ thiết lập SSL/TLS để dữ liệu từ Logstash của node 2 gửi về node 1 sẽ được mã hóa.
 - Node 3 cài đặt Filebeat, thu thập file log và gửi về Logstash.
