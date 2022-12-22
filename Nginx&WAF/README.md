@@ -87,7 +87,7 @@
   > [root@Generator ~]# sudo firewall-cmd --permanent --zone=public --add-service=http <br>
     [root@Generator ~]# sudo firewall-cmd --permanent --zone=public --add-service=https <br>
     [root@Generator ~]# sudo firewall-cmd --reload
-- Kiểm tra Web server: Khởi động dịch vụ:
+- Kiểm tra Web server, khởi động dịch vụ:
   > [root@Generator ~]# systemctl enable nginx <br>
     [root@Generator ~]# systemctl start nginx <br>
     [root@Generator ~]# systemctl status nginx
