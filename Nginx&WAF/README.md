@@ -11,7 +11,16 @@
 1.5.2 [Các bước thực hiện](#152-các-bước-thực-hiện) <br>
 1.5.2.1 [Cài đặt Nginx (Hệ điều hành CentOS)](#1521-cài-đặt-nginx-hệ-điều-hành-centos) <br>
 1.5.2.2 [Kiểm tra log đã tạo, thu log đẩy về Filebeat, xem log trong Kibana](#1522-kiểm-tra-log-đã-tạo-thu-log-đẩy-về-filebeat-xem-log-trong-kibana)
-
+2. [WAF](#2-waf) <br>
+2.1 [Khái niệm](#21-khái-niệm) <br>
+2.2 [HA](#22-ha) <br>
+2.3 [Modsecurity](#23-modsecurity) <br>
+2.4 [Cấu hình tích hợp Modsecurity cho Nginx](#24-cấu-hình-tích-hợp-modsecurity-cho-nginx) <br>
+2.4.1 [Sơ đồ triển khai](#241-sơ-đồ-triển-khai) <br>
+2.4.2 [Các bước thực hiện](#242-các-bước-thực-hiện) <br>
+2.4.2.1 [Cài đặt các dependencies cần thiết, biên dịch Modsecurity](#2421-cài-đặt-các-dependencies-cần-thiết-biên-dịch-modsecurity) <br>
+2.4.2.2 [Tạo Modsecurity modules cho Nginx, cài đặt OWASP rule](#2422-tạo-modsecurity-modules-cho-nginx-cài-đặt-owasp-rule) <br>
+2.4.2.3 [Kiểm tra hoạt động của Modsecurity](#2423-kiểm-tra-hoạt-động-của-modsecurity)
 
 ## 1. Nginx
 ### 1.1 Khái niệm
@@ -225,8 +234,7 @@
     ![SecRuleEngine](./img/modsecurity-secruleengine-on.png) <br>
     ![SecAuditLog](./img/modsecurity-secauditlog-path.png)
     
-
-##### 2.4.2.2 Kiểm tra hoạt động của Modsecurity
+##### 2.4.2.3 Kiểm tra hoạt động của Modsecurity
 - Mở file cấu hình website cần Modsecurity giám sát đã được tạo trong phần [cấu hình Nginx](#15-cấu-hình-nginx) /etc/nginx/conf.d/abcdtestnginx.com và thêm vào 2 dòng sau:
   > modsecurity on; <br>
     modsecurity_rules_file /etc/nginx/modsec_includes.conf;
