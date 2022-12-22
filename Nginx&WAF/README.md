@@ -252,7 +252,7 @@
       - Lần lượt kiểm tra xem libstdc++.so.6 có GLIBCXX3.20.0 hay chưa:
         > [root@Generator ~]# strings /usr/local/lib64/libstdc++.so.6 | grep GLIBCXX_
         ![local-lib64](./img/modsecurity-local-lib64-grep.png)
-        > [root@Generator ~]# strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX_
+        > [root@Generator ~]# strings /usr/lib64/libstdc++.so.6 | grep GLIBCXX_ <br>
         ![lib64](./img/modsecurity-lib64-grep.png)
       - Thấy được rằng chỉ libstdc++.so.6 trong /usr/lib64 mới hỗ trợ GLIBCXX3.20.0, cần tạo symbolic link cho libstdc++.so.6 trong /usr/local/lib64 trỏ đến libstdc++.so.6 của /usr/lib64:
         > [root@Generator ~]# ln -fs /usr/local/lib64/libstdc++.so.6 /usr/lib64/libstdc++.so.6
@@ -268,7 +268,7 @@
     [root@intern01 ~]#
   - XSS attack:
     > [root@intern01 ~]# curl 'http://x.x.x.x/?q="><script>alert(0)</script>'
-    - Kết quả trả về sau khi tấn công:
+    - Kết quả trả về sau khi tấn công: <br>
       ![attack-results](./img/modsecurity-node1-attack-result.png)
   - Quay về node 3 kiểm tra quá trình tấn công bị ngăn chặn được ghi lại trong các file log sau:
     > [root@Generator ~]# tail -f /var/log/nginx/abcdtestnginx.com.error.log <br>
