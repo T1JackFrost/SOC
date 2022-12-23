@@ -47,7 +47,7 @@
 
 ### 1.3 Đặc trưng
 - Nginx dễ cấu hình để phục vụ cho các web có nội dung tĩnh (static content) hoặc hoạt động như 1 proxy server. 
-- Nginx cũng có thể được triển khai để phục vụ nội dung động (dynamic content) trên mạng bằng việc sử dụng FastCGI, trình xử lý SCGI đối với scripts, máy chủ ứng dụng WSGI hoặc module Phusion Passenger, bộ cân bằng tải phần mềm.
+- Nginx cũng có thể được triển khai để phục vụ nội dung động (dynamic content) trên mạng bằng việc sử dụng FastCGI, trình xử lý SCGI đối với scripts, máy chủ ứng dụng WSGI hoặc module Phusion Passenger, bộ cân bằng tải phần mềm (software load balancer).
 - Nginx sử dụng hướng tiếp cận theo hướng sự kiện (event-driven) và bất đồng bộ (asynchronous) thay vì hướng tiếp cận theo các luồng để xử lý các request. Kiến trúc hướng sự kiện theo module của Nginx có thể cung cấp việc dự đoán hiệu suất trong điều kiện tải cao.
 - Các tính năng của HTTP proxy và Web server: 
   - Khả năng xử lý hơn 10.000 kết nối đồng thời với dung lượng bộ nhớ thấp (~2,5Mb/10k kết nối HTTP không hoạt động)
@@ -70,7 +70,7 @@
 - **Web Server**: Khi Nginx mới ra mắt, các trang web phần lớn là các trang HTML cơ bản với nội dung chủ yếu là tĩnh. Ngày nay các trang web có nhiều nội dung động và hầu hết là đã chuyển sang dạng ứng dụng web (web application). Nginx vẫn phát triển và hiện có khả năng xử lý nhiều công nghệ web khác nhau bao gồm web socket, gRPC, HTTP/2, truyền phát các định dạng video khác nhau.
 - **Cân bằng tải**: Nginx có thể hoạt động như 1 bộ cân bằng tải có khả năng phân phối lưu lượng trên tất cả các node trong 1 cụm (cluster). Nó cung cấp tính năng cân bằng tải tích hợp, với nhiều phương pháp và thuật toán theo ý người dùng.
 - **Proxy ngược**: Với khả năng tích hợp sẵn để chuyển yêu cầu đến máy chủ khác, nhóm các server hoặc bất kỳ ứng dụng nào khác qua nhiều giao thức, khiến nó trở thành lựa chọn thuận tiện cho 1 máy chủ proxy ngược. Ngoài HTTP, Nginx còn hỗ trợ các giao thức FastCGI, uWSGI, SCGI để chuyển tiếp các request mà nó nhận được qua HTTP. 
-- **API Gateway**: Microservices rất phổ biến trong các ứng dụng hiện đại, điều này có nghĩa là ta không thể yêu cầu khách hàng API của mình theo dõi các host và các endpoint của từng dịch vụ. Là 1 nhà cung cấp API, ta có trách nhiệm cung cấp 1 tập hợp các host và endpoint nhất quán cho khách hàng. Đây là lúc cần đến API Gateway. Nginx cung cấp tất cả các công cụ cần thiết để không chỉ xác định các điểm cuối khác nhau mà còn định tuyến các request đến các dịch vụ backend đồng thời cân bằng tải cho tất cả các máy chủ khác nhau cho các dịch vụ đó.
+- **API Gateway**: Microservices rất phổ biến trong các ứng dụng hiện đại, điều này có nghĩa là ta không thể yêu cầu khách hàng API của mình theo dõi các host và các endpoint của từng dịch vụ. Là 1 nhà cung cấp API, ta có trách nhiệm cung cấp 1 tập hợp các host và endpoint nhất quán cho khách hàng. Đây là lúc cần đến API Gateway. Nginx cung cấp tất cả các công cụ cần thiết để không chỉ xác định các endpoint khác nhau mà còn định tuyến các request đến các dịch vụ backend đồng thời cân bằng tải cho tất cả các máy chủ khác nhau cho các dịch vụ đó.
 
 ### 1.5 Cấu hình Nginx
 #### 1.5.1 Sơ đồ triển khai
