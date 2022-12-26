@@ -256,9 +256,9 @@
         ![lib64](./img/modsecurity-lib64-grep.png)
       - Thấy được rằng chỉ libstdc++.so.6 trong /usr/lib64 mới hỗ trợ GLIBCXX3.20.0, cần tạo symbolic link cho libstdc++.so.6 trong /usr/local/lib64 trỏ đến libstdc++.so.6 của /usr/lib64:
         > [root@Generator ~]# ln -fs /usr/local/lib64/libstdc++.so.6 /usr/lib64/libstdc++.so.6
-  - Lỗi: nginx: [error] invalid PID number "" in "/run/nginx.pid"
-    _Xử lý_:
-        > [root@Generator ~]# systemctl restart nginx
+  - Lỗi: nginx: [error] invalid PID number "" in "/run/nginx.pid" <br>
+    _Xử lý_: <br>
+      > [root@Generator ~]# systemctl restart nginx
 - Thử nghiệm 1 số dạng tấn công đơn giản: Test trên 1 server khác đang được kết nối với server được cài đặt Nginx + Modsecurity, cụ thể ở đây theo sơ đồ triển khai thì là Node 1 sẽ thực hiện tấn công vào Node 3
   - Local file inclusion acttack:
     > [root@intern01 ~]# curl http://x.x.x.x/index.html?exec=/bin/bash <br>
