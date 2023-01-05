@@ -219,7 +219,7 @@
     > [root@Generator ~]# cd /etc/nginx <br>
       [root@Generator nginx]# git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git <br>
       [root@Generator nginx]# mv owasp-modsecurity-crs modsecurity-crs <br>
-      [root@Generator nginx]# cd modsecurity-crs
+      [root@Generator nginx]# cd modsecurity-crs <br>
       [root@Generator modsecurity-crs]# cp crs-setup.conf.example crs-setup.conf
   - Tạo file modsec_includes.conf:
     > [root@Generator ~]# vi /etc/nginx/modsec_includes.conf
@@ -265,7 +265,6 @@
     Với x.x.x.x là địa chỉ IP của Node 3 (đang được bảo vệ bởi Modsecurity)
   - SQL injection attack:
     > [root@intern01 ~]# curl 'http://x.x.x.x/?q=1" or "1"="1"'
-    [root@intern01 ~]#
   - XSS attack:
     > [root@intern01 ~]# curl 'http://x.x.x.x/?q="><script>alert(0)</script>'
     - Kết quả trả về sau khi tấn công: <br>
